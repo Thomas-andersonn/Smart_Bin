@@ -1,0 +1,171 @@
+div#box{
+    width:100px;
+    opacity:1;
+    position:relative; 
+  	top:340px;  
+  	border-style: solid;
+  	border-width: 1px;
+    
+}
+
+table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+th, td {
+        padding: 10px;
+    }
+
+#table{
+	width: 50%;
+}
+
+div#bin1{
+       /*position: absolute;
+       left: 60%;
+       height: 400px;
+       width:110px;
+       top:159px;*/
+       display: table-cell;
+		width: 50%;
+
+    }
+div#output
+{
+	/*margin-left: 200px;
+	margin-top: 100px;
+	left: 50px;
+	top:50px;*/
+	display: table-cell;
+	width: 50%;
+
+}
+    
+#table
+{
+	margin-left: 10px;
+}
+
+p#percentage
+{
+	color: white;
+	/*top:360px;*/
+	position: relative;
+	z-index: 10;
+	/*display:block;*/
+
+}
+#tablediv{
+	display: table;
+	/*margin-left: 25%;*/
+	width: 100%;
+}
+
+#rowdiv{
+	display: table-row;	
+}
+
+
+p#table_label{
+	display: table-cell;
+	width: 50%;
+	height: 50px;
+	text-align: center;
+	padding-top: 20px;
+	
+}
+
+p#current_label{
+	display: table-cell;
+	width: 50%;
+	text-align: center;
+
+}
+
+#wrapper{
+	display: table;
+	padding-top: 30px;
+	/*margin-left: 25%;*/
+	width: 100%;
+	z-index: 10;
+}
+
+#row{
+	display: table-row;
+}
+
+
+
+center{
+
+font-family: SFNS Display;
+
+}
+
+p{
+	font-family: SFNS Display;	
+}
+
+  
+p#bin_height{
+	display: table-cell;
+	color: white;
+	width: 25%;
+	padding-top: 8.5%;
+
+}
+
+p#LeftSpace{
+	display: table-cell;
+	width: 25%;
+	color: white;
+	z-index: 100;
+	
+}
+
+p#per_occ{
+	display: table-cell;
+	width: 25%;
+	color: white;
+}
+
+p#Space_occ{
+	display: table-cell;
+	width: 25%;
+	color: white;
+}
+
+#footer{
+	width:100%;
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+	height: 50px;
+	z-index: 1;	
+	background-color: black;
+	z-index: -10;	
+}
+/*
+hr#hrr{
+    border: 0;
+    height: 1px;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}
+*/
+hr#hrr {
+	padding: 0;
+    border: none;
+    border-top: medium double #333;
+    color: #333;
+    text-align: center;
+}
+hr#hrr:before { /* Not really supposed to work, but does */
+     content: "§";
+    display: inline-block;
+    position: relative;
+    top: -0.7em;
+    font-size: 1.5em;
+    padding: 0 0.25em;
+    background: white;
+}

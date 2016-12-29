@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>C3</title>
+	<script language="javascript" type="text/javascript" src="js/c3.min.js"></script>
+	<script language="javascript" type="text/javascript" src="js/d3.v3.min.js"></script>
+	<script language="javascript" type="text/javascript" src="js/jquery.js"></script>
+    <style type="text/css">
+      @import url(css/c3.min.css);
+    </style>
+</head>
+<body>
+
+
+
+</body>
+<div id = "ll" style="<position:fixed; height:500px; top:160px;">
+ <script type="text/javascript">
+ 	d3.json("http://localhost/iot/includes/process.php", function(error, data) 
+ 	{
+		    
+		    var bin_height = 70;
+		    var char_data = [];
+		    var char_time = [];
+		    char_data.push("ht");
+		    for (var i = 1; i <= 20; i++) {
+                // var add_data = data[i][1];
+                
+                if(data[i][1] > bin_height)
+                {
+                	data[i][1] = 0;
+                }
+                else
+                	data[i][1] = (bin_height - data[i][1]);
+                var add_time = data[i][2];
+                // char_data.push(add_data);
+                char_time.push(i+" min");
+            }
+
+        //    alert(data[1][2]);
+            
+            
+            // alert(char_data);
+		    var chart = c3.generate({
+		    bindto: '#ll',
+		    data: {
+		      columns: [['Height_Filled',data[ 1 ][1],data[ 2 ][1],data[ 3 ][1],data[ 4 ][1],data[ 5 ][1],data[ 6 ][1],data[ 7 ][1],data[ 8 ][1],data[ 9 ][1],data[ 10 ][1],data[ 11 ][1],data[ 12 ][1],data[ 13 ][1],data[ 14 ][1],data[ 15 ][1],data[ 16 ][1],data[ 17 ][1],data[ 18 ][1],data[ 19 ][1],data[ 20 ][1]]],
+		      type: 'bar',
+		    },
+		    axis: {
+        x: {
+            type: 'category',
+            categories: char_time
+        }
+    }
+		});
+
+		
+	
+	
+
+	});
+
+    </script>
+    </div>
+</html>

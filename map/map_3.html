@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style type="text/css">
+      html, body { height: 100%; margin: 0; padding: 0; }
+      #map { height: 100%; }
+    </style>
+  </head>
+  <body>
+    <div id="map" style="height:600px; top: 50px;"></div>
+    <script type="text/javascript">
+
+var map;
+function initMap() {
+
+  var co_ordinates = {lat:22.252342, lng:84.900769};
+  
+
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: co_ordinates,
+    zoom: 15 // zoom level 16 views the entire NIT Rourkela
+  });
+
+  var contentString = "79%";
+  var infowindow = new google.maps.InfoWindow({
+    content: contentString
+  });
+
+  var marker = new google.maps.Marker({
+    position: co_ordinates,
+    map: map,
+    title: 'First Marker'
+  });
+  marker.addListener('click', function() {
+    infowindow.open(map, marker);
+  });
+
+};
+
+/*
+22.252342, 84.900769
+22.253031, 84.900769
+22.245405, 84.910209
+22.249552, 84.896981
+22.252342, 84.900055
+22.255483, 84.912390
+22.252136, 84.905097
+*/
+
+
+    </script>
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXVFDsb2A5gjYB0F_Jnp07zLxjgUqARVo&callback=initMap">
+    </script>
+  </body>
+</html>

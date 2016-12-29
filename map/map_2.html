@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style type="text/css">
+      html, body { height: 100%; margin: 0; padding: 0; }
+      #map { height: 100%; }
+    </style>
+  </head>
+  <body>
+
+    
+    <div id="map"></div>
+    <div id="map" style="height:600px; top: 50px;"></div>
+  
+    <script type="text/javascript">
+
+var map;
+function initMap() {
+
+  var pos1 = new google.maps.LatLng(22.253031, 84.900769);
+  var pos2 = new google.maps.LatLng(22.245405, 84.910209);
+  var pos3 = new google.maps.LatLng(22.249552, 84.896981);
+  var pos4 = new google.maps.LatLng(22.252342, 84.900055);
+  var pos5 = new google.maps.LatLng(22.255483, 84.912390);
+  var pos6 = new google.maps.LatLng(22.252136, 84.905097);
+
+  var lat_lng = [];
+
+  
+    lat_lng.push(pos1);
+    lat_lng.push(pos2);
+    lat_lng.push(pos3);
+    lat_lng.push(pos4);
+    lat_lng.push(pos5);
+    lat_lng.push(pos6);
+    //alert(lat_lng);
+  
+  
+
+  var directionsDisplay = new google.maps.DirectionsRenderer;
+  var directionsService = new google.maps.DirectionsService;
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 14,
+    center: lat_lng[0]
+  });
+  directionsDisplay.setMap(map);
+
+  calculateAndDisplayRoute(directionsService, directionsDisplay);
+ 
+}
+
+function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+  
+  //var selectedMode = document.getElementById('mode').value;
+  var requestArray = "Rourkela";
+  renderArray = "Hyderabad";
+  directionsService.route({
+    origin: requestArray,
+   // Haight.
+    destination:  renderArray,  // Ocean Beach.
+    // Note that Javascript allows us to access the constant
+    // using square brackets and a string value as its
+    // "property."
+    travelMode: google.maps.TravelMode["DRIVING"]
+  }, function(response, status) {
+    if (status == google.maps.DirectionsStatus.OK) {
+      directionsDisplay.setDirections(response);
+    } else {
+      window.alert('Directions request failed due to ' + status);
+    }
+  });
+}
+/*
+22.252342, 84.900769
+22.253031, 84.900769
+22.245405, 84.910209
+22.249552, 84.896981
+22.252342, 84.900055
+22.255483, 84.912390
+22.252136, 84.905097
+*/
+
+
+    </script>
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXVFDsb2A5gjYB0F_Jnp07zLxjgUqARVo&callback=initMap">
+    </script>
+  </body>
+</html>
